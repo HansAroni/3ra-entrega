@@ -1,0 +1,117 @@
+// Required
+@import "../node_modules/bootstrap/scss/functions";
+@import "../node_modules/bootstrap/scss/variables";
+@import "../node_modules/bootstrap/scss/mixins";
+@import "../node_modules/bootstrap/scss/root";
+
+
+
+body{
+    background-image: linear-gradient(to left, white, rgb(151, 187, 235));
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif!important;
+}
+nav a:hover{
+    font-size: 16px;
+    text-transform: uppercase;
+}
+form input:focus{
+    font-size: 18px;
+    border-radius: 20px;
+    border: 3px solid rgba(158, 189, 236, 0.877);
+
+ 
+}
+// Mapas
+$colors: (
+    'primario': blue,
+    'secundario': darkblue,
+    'negro': lightblue,
+);
+.p1{
+    color: map-get($map: $colors, $key: 'primario')!important;
+}
+.p2{
+    color: map-get($map: $colors, $key: 'secundario')!important;
+    font-size: medium;
+    background-color: lightblue;
+    
+}
+.p3{
+    color: map-get($map: $colors, $key: 'primario')!important;
+}
+// Extend
+.p4{
+    @extend .p2;
+    font-size: medium;
+}
+.p5{
+    @extend .p1;
+}
+
+// Mixin
+@mixin parrafos {
+    font-size: medium;
+    padding: 5px;
+}
+.p1{
+    @include parrafos;
+}
+
+.p3{
+    @include parrafos;
+}
+.card:hover{
+    transform: translateY(-10px);
+    box-shadow: 0 8px 10px rgb(23, 139, 235);
+    border: 1px solid black;
+    }
+
+// // // // Cambiando estilos a bootstrap
+
+
+$container-max-widths: (
+  sm: 430px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+  xxl: 1320px
+);
+
+// Cambiando colores colores 
+$primary: #130592;
+$danger: #ff4136;
+$theme-colors: (
+  "primary": $primary,
+  "danger": $danger
+);
+
+// Agregar nuevo color a la paleta de colores que vienen por defecto
+$custom-colors: (
+  "custom-color": rgba(70, 84, 236, 0.459)
+);
+
+// Merge al mapeo de colores
+$theme-colors: map-merge($theme-colors, $custom-colors);
+
+// Cambiar estilos de nav
+
+$navbar-padding-y:                  $spacer * .5;
+$navbar-padding-x:                  .5rem;
+
+$navbar-nav-link-padding-x:         .5rem;
+
+$navbar-brand-font-size:            $font-size-lg;
+// Compute the navbar-brand padding-y so the navbar-brand will have the same height as navbar-text and nav-link
+$nav-link-height:                   $font-size-base * $line-height-base + $nav-link-padding-y * 3;
+$navbar-brand-height:               $navbar-brand-font-size * $line-height-base;
+$navbar-brand-padding-y:            ($nav-link-height - $navbar-brand-height) * .4;
+$navbar-brand-margin-end:           1rem;
+
+$navbar-toggler-padding-y:          .25rem;
+$navbar-toggler-padding-x:          .75rem;
+$navbar-toggler-font-size:          $font-size-lg;
+$navbar-toggler-border-radius:      $btn-border-radius;
+$navbar-toggler-focus-width:        $btn-focus-width;
+$navbar-toggler-transition:         box-shadow .15s ease-in-out;
+
+@import "../node_modules/bootstrap/scss/bootstrap";
